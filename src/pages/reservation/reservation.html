@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title> Reservation</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content  padding="true" >
+  <ion-item style="background:none;" >
+    <ion-input type="text" placeholder="Client"></ion-input>
+  </ion-item>
+  <form method="post">
+  <ion-item>
+    <ion-input type="text" placeholder="Employee"  ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Produit à reserver</ion-label>
+    <ion-select multiple="true" >
+      <ion-option>produit</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date Début</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+      <ion-label>Date Fin</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" ></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input type="number" placeholder="Quantite"  ></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-input type="number" placeholder="Quantite"  ></ion-input>
+    </ion-item>
+    
+    <button (click)="reserver()" ion-button large block color="primary">
+      <ion-icon ios="ios-create" md="md-create">  Réserver</ion-icon>
+  </button>
+      
+    </form>
+</ion-content>

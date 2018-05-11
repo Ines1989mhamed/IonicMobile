@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title >Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding="true" >
+
+  <div class="profile-image">
+      <img src="assets/imgs/f2.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+
+  </div>
+      
+    <ion-item style="background:none;">
+      <ion-input floating type="text" placeholder="Email"  [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item style="background:none;">
+      <ion-input [type]="passwordType" placeholder="Mot de passe"  [(ngModel)]="user.password"></ion-input>
+      <button ion-button clear item-end (click)="togglePassword()" style="height: 32px">
+        <ion-icon name="eye" color="gray" item-end></ion-icon>
+      </button>
+    </ion-item>
+
+  <button  type="submit" style="background: rgb(90, 88, 88);" ion-button   large block (click)="login()"> <ion-icon ios="ios-log-in" md="md-log-in">  Connexion</ion-icon></button>
+
+</ion-content>

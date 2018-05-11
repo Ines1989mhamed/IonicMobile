@@ -1,0 +1,80 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+      <ion-title> Bon de sortie</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding="true" class="myview">
+    <ion-label>Veuillez remplir les cases suivantes !</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Tapez le nom de client" [(ngModel)]="Fiche.Client.Nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Tapez l'evennement " [(ngModel)]="Fiche.evennement"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Tapez l'adresse de livraison" [(ngModel)]="Fiche.Client.Adresse"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Tapez le nom du transporteur" [(ngModel)]="Fiche.Transpoteur.Nom"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-input type="number" placeholder="Tapez son numero de telephone" [(ngModel)]="Fiche.Client.Tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Tapez la matricule de la voiture" [(ngModel)]="Fiche.Voiture.Matricule"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Equipe Technique" [(ngModel)]="Fiche.Employees.Nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date Début: </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="Fiche.DateDeb"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date Fin : </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="Fiche.dateFin"></ion-datetime>
+    </ion-item>
+    <ion-label>Veuillez scanner le code du produit !</ion-label>
+    <button ion-button (click)="scan()" block>
+      <ion-icon name="qr-scanner"> Scan</ion-icon>
+    </button>
+  
+    <ion-item>
+      <ion-input type="text" placeholder="Produit" [(ngModel)]="scanData.text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number" placeholder="Quantité" [(ngModel)]="scanData.Quantite"></ion-input>
+    </ion-item>
+    <button ion-button (click)="valider()" style="background-color: rgb(141, 135, 135)" block>
+      <ion-icon ios="ios-add" md="md-add"> Ajouter</ion-icon>
+    </button>
+    <ion-label>Liste des produits :</ion-label>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>N°</ion-col>
+        <ion-col col-4>Produit</ion-col>
+        <ion-col col-3>Quantité</ion-col>
+        <ion-col col-3>Action</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let produit of Fiche.LignesProduits">
+        <ion-col col-2> {{produit.Num_Ligne}}</ion-col>
+        <ion-col col-4> {{produit.Produit.Designation}}</ion-col>
+        <ion-col col-3>{{produit.Quantite}}</ion-col>
+        <ion-col col-3>
+          <a (click)="delete(produit.Produit.Designation)">
+            <ion-icon name="trash" color="danger"></ion-icon>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+     
+    <button ion-button block style="background-color: rgb(80, 78, 78)" (click)="sauvegarder()">
+      <ion-icon ios="ios-send" md="md-send"> Envoyer</ion-icon>
+    </button>
+    <button ion-button block color="danger" (click)="retour()">
+      <ion-icon name="backspace"> Annuler</ion-icon>
+    </button>
+  </ion-content>
